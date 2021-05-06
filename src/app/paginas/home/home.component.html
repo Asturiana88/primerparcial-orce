@@ -1,0 +1,11 @@
+<div class="row">
+    <div *ngIf="data"  class="col">
+        <h1>Github info</h1>
+
+        <h3>Username: <span>{{data.login}}</span></h3>
+        <img src="{{data.avatar_url}}" alt="">
+        <!-- <h3> <a href="{{data.url}}">URL</a> </h3>
+        <h3> <a href="{{data.repos_url}}">Repos URL</a> </h3> -->
+
+    </div>
+</div>

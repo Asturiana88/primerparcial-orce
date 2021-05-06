@@ -1,0 +1,42 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <h1>Productos</h1>
+        <table *ngIf=productos.source class="table table-dark">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Comestible</th>
+                    <th>Pais</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos | async" (click)="handleDetails(producto)">
+                    <td>{{ producto.codigo }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>{{ producto.comestible }}</td>
+                    <td>
+                        <img src="{{producto.pais.flag}}" alt="Foto bandera" width="150px" height="auto">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div *ngIf=selectedProd.codigo class="-modal">
+            <div class="-modal-bg"></div>
+            <div class="bg-dark -content">
+                <div class="d-flex justify-content-end">
+                    <div class="-close-btn" (click)="handleCloseDetails()">X</div>
+                </div>
+                <app-detalle-producto [producto]="selectedProd" ></app-detalle-producto>
+            </div>
+        </div>
+    </div>
+</div>
